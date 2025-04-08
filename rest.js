@@ -59,4 +59,4 @@ The rest parameter must be the last parameter in the function definition.
 
 It captures all remaining arguments passed to the function and stores them as an array.
 
-You can combine rest parameters with other regular parameters. */
+// You can combine rest parameters with other regular parameters. */
