@@ -16,4 +16,8 @@ To avoid mutation of original data (immutable code)  */
 const a =[1,2,3,4,5];
 const b =[1,2,3,4,5];
 const copy = [...a,...b];
-console.log(copy)
+console.log(copy);
+
+const text ="asdf"
+const nee = [...text];
+console.log(nee)
