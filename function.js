@@ -29,6 +29,8 @@ Anonymous();
 // add(); // add is not defined you have to call using stored varible name
 
 
+
+
 // JavaScript default parameters in "ES6".
 function add(a = 10, b = 4) {
     return a + b;
