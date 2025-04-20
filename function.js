@@ -3,6 +3,7 @@
 function people(name) { 
     console.log("I am named function" + name)
 }
+
 people("  hello");  //A function is declared using the function keyword and can be called before or after the declaration.
 
 const fun = (people) => {  //Arrow function is a shorter syntax for writing functions.
@@ -16,13 +17,13 @@ fun(people("  and called by other function"));
 
 (function () {  //A function that executes immediately after definition.
     console.log("immediately invoked function")
-})();
+})();  //  () add after function decleration to immediately invoke; 
 
 
 // Function Expression
 // A Function Expression involves assigning a function to a variable.
 // ❌ Not Hoisted: You cannot call it before it's defined.  because it store into a variable
-const Anonymous = function add() {
+const Anonymous = function () {
     console.log("i am a anonymous function")
 }
 Anonymous();

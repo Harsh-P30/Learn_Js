@@ -10,12 +10,16 @@ const person = {
 }
 
 console.log(person.greet())  //(.)dot notation
+console.log(person["alive"]) //([]) bracket notation
+
 person.country = "india"; // add
 console.log(person.country)
-console.log(person["alive"]) //([]) bracket notation
+
 person.age = 20;//modify existing properties
+
 delete person.rollno;
-console.log(person.rollno)
+console.log(person.rollno)  // undefined
+
 console.log("name" in person); // true
 console.log("salary" in person); // false
 console.log(person.hasOwnProperty("age")); // true
