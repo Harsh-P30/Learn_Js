@@ -34,3 +34,17 @@ User.prototype.toString=function(){
 const namee = new User('harsh',23);  // add "new" keyword in start because use create a new method or prototype after the function decleration.and the created  if use dont add "new "is return error" -> Cannot read properties of undefined
 namee.toString();
 // typeof(namee.st());
+
+
+function Car() {
+    console.log("Car instance created!");
+}
+
+// Add a method to the prototype
+Car.prototype.drive = function() {
+    console.log(`Driving the car...`);
+};
+
+// Create instances of Car and use the drive method
+const car1 = new Car();
+car1.drive(); // Outputs: Driving the car...
