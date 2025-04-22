@@ -46,6 +46,8 @@ console.log(myCar.city);  // // Undefined, because "city" is not an instance pro
 console.log(carr.city);
 
 
+
+
 // object properties can access by two method 
     //1st:-dot notation(Preferred)
         //object.key

@@ -38,3 +38,13 @@ const jsonFile=JSON.stringify(person) // convert string into JSON file.
 console.log(jsonFile)
 const stringFile=JSON.parse(jsonFile) //convert JSON into string.
 console.log(stringFile)
+
+
+const personn = [  //  map() is only used on arrays in JavaScript.  
+    { name: "Alice", age: 22 },
+    { name: "Bob", age: 28 },
+  ];
+  
+  let personsname = personn.map(person => person.name);
+  console.log(personsname); // ["Alice", "Bob"]
+  
