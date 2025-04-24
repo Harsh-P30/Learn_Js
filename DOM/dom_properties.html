@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black; color: white;">
+
+
+
+    <style>
+        #boxx {
+            height: 100%;
+            width: 100%;
+            background-color: white;
+            color: black;
+        }
+        
+        .noChild{
+            background-color: white;
+            color: black;
+            
+        }
+    </style>
+
+    <div class="box">
+        <h1>Hello</h1>
+        <div id="boxx">
+            <h1>Hello Master</h1>
+            <h5>Hello Master</h5>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque, reprehenderit.</p>
+        </div>
+    </div>
+    <div class="noChild"></div>
+
+
+
+    <script>
+        let boxx = document.getElementById('boxx');
+        let h1 = document.querySelectorAll('h1');
+        let noChild = document.querySelector('.noChild');
+        console.log(boxx.children);  // if you try to access children it gives you only those things that you initialize(elements) here it gives you { HTMLCollection(3) [h1, h5, p] or known as elementnodes}
+        console.log(boxx.childNodes);  // if you try to access 'childnodes' it gives you all the nodes(Everything (text, comments, elements ,/n) here it gives you { NodeList(9) [text, h1, text, h5, text, comment, text, p, text] }
+        console.log(boxx.firstChild)  // {#text} opening div node
+        console.log(boxx.firstElementChild)  // gives you your defined means elmentnode and { <h1>Hello Master</h1>   {h1}}
+        console.log(boxx.lastChild)  // {#text} closing div node
+        console.log(boxx.lastElementChild)  // gives you your defined means elmentnode and {  <p> lorem+10</p>  {h1}}
+        console.log(boxx.parentNode) // access or show the Parent box {<div id ="box"> </div>}
+        console.log(document.querySelector('.noChild').hasChildNodes());  // False because of no chlid element in this div
+        console.log(document.querySelector('.noChild').nodeName);  // Gives you node name
+        console.log(document.querySelector('.noChild').nodeType);  // gives you node type as a number 
+
+
+        console.log(boxx.isConnected);  // return true/ fase ".isConnected" is a property on individual DOM nodes that tells you if the node is currently connected to the live document (DOM tree).
+        console.log(h1[1].isConnected);  // gives true
+        console.log(h1.isConnected); // givees undefined because you are apply on HTML collection'  Using getElementsByTagName, getElementsByClassName, or childNodes — they return live collections.Calling .isConnected directly on a collection will always give undefined.
+
+
+
+        h1[1].remove(); // removed a element {h1="Hello Master"}
+        boxx.removeChild(document.querySelector('p'));  // by using remove child but you have to give the address or access of child node also
+
+
+
+
+        const newEnd = document.createElement('p');  // create a p element
+        newEnd.innerText="hey i am appended"; // add text into them
+        boxx.appendChild(newEnd); // append the new element into child;
+
+        const newFirst = document.createElement('h1');  // creating a 'h1' element
+        newFirst.innerText="hey' I am prepend";         // add text into them
+        boxx.prepend(newFirst);                         // using 'prepend' add new element top of the parent.
+        noChild.prepend(newFirst);                      // you can use multiple times if you use the all above prepend we not work
+
+
+
+        const before = document.createElement('div');   // creating a 'div' element
+        before.id="beforeDiv";
+        const divHi = document.createElement('h1');     // creating a 'h1' element
+        divHi.innerText='hey i am before';              //add text into the divHi('h1');
+        before.append(divHi);                           //append the new element into child into a before('div');
+        boxx.before(before);                            //use 'before' and add a new div before the parent(boxx);
+        boxx.after(before);
+
+        const after = document.createElement('h1');
+        after.innerText="i am after ";
+        boxx.after(after);
+
+
+        // Other Medthod to add elements into existing DOM
+        boxx.insertAdjacentHTML("beforebegin","<p>used beforebegin</p>"); // similar to before() method add element brfore 'parent';
+        boxx.insertAdjacentHTML("beforeend","<h1>used Beforebegin</h1>"); // into parent, element end of the parent element
+        boxx.insertAdjacentHTML("afterbegin","<div><h1>Helle</h1></div>"); // into parent, element add to top in parent
+        boxx.insertAdjacentHTML("afterend","<p>after end</p>"); // similar to after add element after the parent element
+
+
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!--
+What i learned from here:- 
+    Traversal Properties Recap (Hierarchy Navigation)
+
+    Property	                            Description
+    firstChild	                            First child node (text or element)
+    firstElementChild                      	First element child
+    lastChild	                            Last child node
+    lastElementChild                       	Last element child
+    nextSibling                            	Next node (can be text, etc.)
+    nextElementSibling	                    Next element sibling
+    previousSibling	                        Previous node
+    previousElementSibling	                Previous element sibling
+
+
+    🧼 remove() and removeChild()
+    element.remove() — Removes the element from the DOM
+    parent.removeChild(child) — Also removes a specific child
+
+-->
