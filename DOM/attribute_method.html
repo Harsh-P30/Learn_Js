@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black;color: white;">
+    
+
+
+    <div class="outerdiv" id="outerdiv" style="color: white; background-color: black;">
+        <h1>Hello Master</h1>
+        <div class="innerdiv">
+            <h1>Hello inner</h1>
+            <div id="lastdiv">
+                <h1>Hey Master!</h1>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+
+        let a = document.querySelector('.outerdiv'); 
+        let innerdiv = document.querySelector('.innerdiv');
+
+        console.log(a.getAttribute("style"));   // show value of that attribute.
+        console.log(a.hasAttribute("class"));    // to check attribut is present or not{ if present 'true'}.
+
+
+        console.log(a.hasAttribute("href"));    // to check attribut is present or not { if absent 'flase'}.
+        
+        innerdiv.setAttribute("id","innerdivId");
+        innerdiv.setAttribute("style","color:red;background-color:blue");// innerdiv.setAttribute("style","backgroud-color:blue"); we cant add same named attribute in same element
+        // innerdiv.style.cssText = "color:red; background-color:blue;";  // also use 
+        innerdiv.removeAttribute("style"); // removed style attribute
+
+    </script>
+</body>
+</html>
+
+
+<!--
+    ....Attribute() methods use to manupulate 'Attribute of a element'
+
+    Before Manupulation any attribure of a element you have to access that element first
+        4 different types of manupulation
+            1.   .getAttribute() -> use to show the values of the attribute 
+            2.   .setAttribute() -> use to add attribute into the element
+            3.   .removeAttribute() -> use to remove attribute and by default it remove all values of selected attribute of a elemnet
+            4.   .hasAttribute() -> check the attribute present into the element or not
+
+-->
