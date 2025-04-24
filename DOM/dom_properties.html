@@ -90,6 +90,9 @@
         boxx.after(after);
 
 
+        const clone1 = boxx.cloneNode(true);
+        boxx.after(clone1);
+
         // Other Medthod to add elements into existing DOM
         boxx.insertAdjacentHTML("beforebegin","<p>used beforebegin</p>"); // similar to before() method add element brfore 'parent';
         boxx.insertAdjacentHTML("beforeend","<h1>used Beforebegin</h1>"); // into parent, element end of the parent element
