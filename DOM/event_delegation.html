@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black; color: white;">
+
+    <div>
+        <ul id="categories">
+            <li id="att">attribute_method.html</li>
+            <li id="dom">dom_properties.html</li>
+            <li id="event">event.html</li>
+            <p>dfads</p>
+            <a href="sd">hello</a>
+        </ul>
+
+    </div>
+
+
+
+    <script>
+
+        // document.querySelector('#categories').addEventListener('click', ()=>{ // target categories section
+        //     console.log('clicked');
+        // })
+
+
+        // document.querySelector('#categories').addEventListener('click', (e)=>{  // direct target differetn 'li' using event delegation method
+        //     console.log(e.target.innerText);
+        //     window.location.href="/DOM/"+e.target.innerText;
+        // })
+
+        // here event bubbling happening from li & a -> categories and then we find which one triggered by using '.target'
+        // in this event listener li and a both bubble up and trigger the condition but if we dont want to trigger click of a then ->
+
+        // document.querySelector('#categories').addEventListener('click', (e)=>{  // direct target differetn 'li' using event delegation method
+        //     console.log(e.target.innerText);
+        //     if(e.target.tagName == 'LI'){
+        //     window.location.href="/DOM/"+e.target.innerText;
+        //     }
+        // })
+
+        // document.querySelector('#categories').addEventListener('click', (e) => {
+        //     e.preventDefault(); // use to prevent unwanted actions
+        // console.log(e.target.innerText);  // Log clicked text
+        // if (e.target.tagName === 'LI') {
+        //     window.location.href = "/DOM/" + e.target.innerText;
+        // }
+        // });
+
+        document.querySelector('#categories').addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            console.log(e.target.matches('li'));
+            if (e.target.matches('li')) {
+                window.location.href = "/DOM/" + e.target.innerText;
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>
+
+<!--
+    What is Event Delegation?
+✅ Instead of adding event listeners to every child element,
+✅ You add ONE listener to the common parent.
+✅ Then use event.target to find which child triggered the event.
+
+In short:
+👉 Put listener on parent, catch child events dynamically.
+
+
+Why use Event Delegation?
+    Reason	                        Benefit
+    Performance	                    Fewer event listeners, faster app
+    Dynamically added elements	    Catch events even for future-added elements
+    Cleaner Code	                Organize code better
+-->
