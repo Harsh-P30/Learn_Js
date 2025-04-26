@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: black; color: white;">
+    
+    <div class="out">
+        <div class="outer_box">
+                <button>Outer</button>
+            <div class="inner_box">
+                <button>Inner</button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>
+
+        let outer = document.querySelector('.outer_box');
+        let inner = document.querySelector('.inner_box');
+        let out = document.querySelector('.out');
+
+        // outer.addEventListener('click', ()=>{
+        //     alert('i am outer')
+        // },false)
+        // inner.addEventListener('click', ()=>{    // event capturing from bottom to top { inner to outer div}
+        //     alert('i am inner')
+        // },true)
+
+
+        // outer.addEventListener('click', ()=>{
+            //     alert('i am outer')
+            // },true)
+            // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  
+            //     alert('i am inner')
+            // },false)
+
+
+            // outer.addEventListener('click', ()=>{
+            //     alert('i am outer')
+            // },true)
+            // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  but ehen outer clicked because no parent of outter it stop;
+            //     alert('i am inner')
+            // },true)
+
+
+            // out.addEventListener('click', ()=>{      // 
+            //     alert('i am out');
+            // },false)
+            // outer.addEventListener('click', ()=>{
+            //     alert('i am outer')
+            // },true)
+            // inner.addEventListener('click', ()=>{     // now 
+            //     alert('i am inner')
+            // },true)
+
+            inner.addEventListener('click', ()=>{
+                alert("triddered inner");
+            },false)
+
+
+
+            inner.addEventListener('click', (e)=>{
+                alert("EVENT DELEGATION");
+                e.stopPropagation;
+            },true)
+
+
+
+            document.addEventListener('click', (e)=>{  // .target to find where you clicked
+                alert('clicked'+ e.target);
+            },true)
+
+    </script>
+
+
+</body>
+</html>
+
+
+<!--
+
+Comparison:
+
+    if you use "true" -> you initiate capturing phase. there the triggering top to down
+
+
+    but if you use "false" -> you initiate Bubbling phase. there the triggering down to top basically target to top;
+
+
+
+
+
+    Parameter	        Phase	    Direction	    Triggers when
+
+    true	            Capturing	Top → Target	Going down
+    false (or omitted)	Bubbling	Target → Top	Going up
+-->

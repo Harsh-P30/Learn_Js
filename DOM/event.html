@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="box">
+        <button id="clickMe">Click Me</button>
+        <a href="www.google.com">google</a>
+    </div>
+
+    <script>
+        let button = document.querySelector('#clickMe');
+        let i=0;
+        button.addEventListener('click', (e)=>{
+            button.style.color="blue";
+            console.log(i++);
+            console.log(e.target);
+            
+            console.log(e.clientY);
+        })
+
+
+        let body = document.querySelector('body');
+
+        body.addEventListener('click', (e)=>{
+            console.log(e.clientX);
+        })
+
+        button.addEventListener('click', ()=>{
+            if(button.innerText.toLowerCase() === 'click me'){
+                button.innerText="Clicked";
+            }else{
+                button.innerText="Click me";
+            }
+        }
+        )
+        
+    </script>
+</body>
+</html>
