@@ -66,9 +66,9 @@
 
 
 
-        // inner.addEventListener('click', (e)=>{
+        // inner.addEventListener('click', (e)=>{  // event propagation use to stop event bubbling. 
         //     alert("EVENT DELEGATION");
-        //     e.stopPropagation;
+        //     e.stopPropagation();
         // },true)
 
 
@@ -106,4 +106,16 @@ Comparison:
 
     true	            Capturing	Top → Target	Going down
     false (or omitted)	Bubbling	Target → Top	Going up
+
+
+
+
+    Why is stopPropagation() useful?
+
+    Situation	                Why use it
+    Modal or Popup Click	    Clicking inside popup shouldn't close the modal
+    Specific Actions	        Only trigger button's action, not parent's big event
+    Complex UIs	                When you have nested clickable elements
+
+    
 -->
