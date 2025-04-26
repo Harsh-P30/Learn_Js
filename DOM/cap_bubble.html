@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body style="background-color: black; color: white;">
-    
+
     <div class="out">
         <div class="outer_box">
-                <button>Outer</button>
+            <button>Outer</button>
             <div class="inner_box">
                 <button>Inner</button>
             </div>
@@ -33,52 +35,57 @@
 
 
         // outer.addEventListener('click', ()=>{
-            //     alert('i am outer')
-            // },true)
-            // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  
-            //     alert('i am inner')
-            // },false)
+        //     alert('i am outer')
+        // },true)
+        // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  
+        //     alert('i am inner')
+        // },false)
 
 
-            // outer.addEventListener('click', ()=>{
-            //     alert('i am outer')
-            // },true)
-            // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  but ehen outer clicked because no parent of outter it stop;
-            //     alert('i am inner')
-            // },true)
+        // outer.addEventListener('click', ()=>{
+        //     alert('i am outer')
+        // },true)
+        // inner.addEventListener('click', ()=>{     // event capturing from top to bottom { outer to inner div}  but ehen outer clicked because no parent of outter it stop;
+        //     alert('i am inner')
+        // },true)
 
 
-            // out.addEventListener('click', ()=>{      // 
-            //     alert('i am out');
-            // },false)
-            // outer.addEventListener('click', ()=>{
-            //     alert('i am outer')
-            // },true)
-            // inner.addEventListener('click', ()=>{     // now 
-            //     alert('i am inner')
-            // },true)
+        // out.addEventListener('click', ()=>{      // 
+        //     alert('i am out');
+        // },false)
+        // outer.addEventListener('click', ()=>{
+        //     alert('i am outer')
+        // },true)
+        // inner.addEventListener('click', ()=>{     // now 
+        //     alert('i am inner')
+        // },true)
 
-            inner.addEventListener('click', ()=>{
-                alert("triddered inner");
-            },false)
-
-
-
-            inner.addEventListener('click', (e)=>{
-                alert("EVENT DELEGATION");
-                e.stopPropagation;
-            },true)
+        // inner.addEventListener('click', ()=>{
+        //     alert("triddered inner");
+        // },false)
 
 
 
-            document.addEventListener('click', (e)=>{  // .target to find where you clicked
-                alert('clicked'+ e.target);
-            },true)
+        // inner.addEventListener('click', (e)=>{
+        //     alert("EVENT DELEGATION");
+        //     e.stopPropagation;
+        // },true)
+
+
+
+        // document.addEventListener('click', (e)=>{  // .target to find where you clicked
+        //     alert('clicked'+ e.target);
+        // },true)
+
+        document.addEventListener('touchmove', (e) => {  // only works on mobile or tables
+            console.log(e.touches[0].clientX);
+        })
 
     </script>
 
 
 </body>
+
 </html>
 
 
