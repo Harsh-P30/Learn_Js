@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <style>
+        body {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        form{
+            width: 60%;
+            height: 500px;
+        }
+
+        #name,#email,#Phonenumer,#password,#confirmpassword,button{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        #name label,#email label,#Phonenumer label,#password label,#confirmpassword label{
+            font-size: 16px;
+            font-weight: 600;
+            
+        }
+        #name input,#email input,#Phonenumer input,#password input,#confirmpassword input{
+            font-size: 12px;
+            font-weight: 600;
+            width: 200px;
+            padding: 5px 10px;
+            text-align: left;
+        }
+        .but{
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+        }
+
+    
+    </style>
+    <div id="outer">
+
+
+        <h1>Welcome Master!</h1>
+        <form action="#" name="myForm" onsubmit="return validateForm()" method="post">
+            <div class="formdesign" id="name">
+                <label for="name">Name</label>
+                <input type="text" name="fname" id="name" placeholder="Enter name" required> <span class="formerror"
+                    style="color: red;"><b> </b></span>
+            </div><br>
+
+            <div class="formdesign" id="email">
+                <label for="email">Email</label>
+                <input type="email" name="femail" id="email" placeholder="Enter email"> <span class="formerror"
+                    style="color: red;"><b> </b></span>
+            </div><br>
+
+            <div class="formdesign" id="Phonenumer">
+                <label for="Phone numer">Ph no</label>
+                <input type="text" name="fphno" id="Phone numer" placeholder="Enter Phone number"> <span
+                    class="formerror" style="color: red;"><b> </b></span>
+            </div><br>
+
+            <div class="formdesign" id="password">
+                <label for="password">Password</label>
+                <input type="password" name="fpassword" id="password" placeholder="Enter password"> <span
+                    class="formerror" style="color: red;"><b> </b></span>
+            </div><br>
+            <div class="formdesign" id="confirmpassword">
+                <label for="confirmpassword">Confirm Password</label>
+                <input type="password" name="fconfirmpassword" id="confirmpassword" placeholder="Enter password"> <span
+                    class="formerror" style="color: red;"><b> </b></span>
+            </div>
+
+            <input class="but" type="submit" value="Submit">
+        </form>
+
+
+    </div>
+
+
+    <script>
+
+        function seterror(id, error) {
+            element = document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML = error;
+        }
+
+        function removeError(id) {
+            element = document.getElementById(id);
+            element.getElementsByClassName('formerror')[0].innerHTML = "";
+        }
+
+        function validateForm() {
+            let isValid = true;
+            let name = document.forms["myForm"]["fname"].value;  // for Form this is best approach.
+
+            if (name.length == 0) {  // Instead of this you can add "required" directly into HTML;
+                seterror("name", "*name cannt be empty");
+                isValid = false;
+            }
+            else if (name.length < 6) {
+                seterror("name", "*Length is too short!");
+                isValid = false;
+            } else {
+                removeError("name");
+                isValid = true;
+            }
+
+
+            let email = document.querySelector('#email input').value;
+            let emPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;  // pattern of a valid email and instead of this add type="email" directly to the HTML;
+            if (!emPattern.test(email)) {
+                seterror("email", "*enter valid email");
+                isValid = false;
+            } else {
+                console.log(email)
+                removeError("email");
+                isValid = true;
+            }
+
+            let phno = document.forms["myForm"]["fphno"].value;
+            let phPattern = /^[0-9]{10}$/;
+            if (!phPattern.test(phno)) {
+                seterror("Phonenumer", "*enter a valid Phone number");
+                isValid = false;
+            } else {
+                removeError("Phonenumer");
+                isValid = true;
+            }
+
+            let pass = document.forms["myForm"]["fpassword"].value;
+            let cpass = document.forms["myForm"]["fconfirmpassword"].value;
+
+            if (pass.length < 6) {
+                seterror("password", "*Password must be at least 6 characters");
+                isValid = false;
+            } else if (pass !== cpass) {
+                removeError("password");
+                seterror("confirmpassword", "Password not matched");
+                isValid = false;
+            } else {
+                removeError("password");
+                console.log("true password");
+                console.log(pass);
+                removeError("confirmpassword");
+                isValid = true;
+            }
+
+            return isValid;
+        }
+    </script>
+</body>
+
+</html>
