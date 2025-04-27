@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>CallBack</title>
+</head>
+
+<body>
+
+    <script>
+        // function greet(name, callback) {
+        //     console.log("Hello " + name);
+        //     callback();
+        // }
+
+        // function sayBye() {
+        //     console.log("Goodbye!");
+        // }
+
+        // greet("Harsh", sayBye);
+
+        // function sum(a, b) {
+        //     console.log(`A+B :- ${a + b}`);
+        // }
+        // function multi(a, b) {
+        //     console.log(`A*B :- ${a * b}`);
+        // }
+        // function div(a, b) {
+        //     console.log(`A/B :- ${a / b}`);
+        // }
+        // function sub(a, b) {
+        //     console.log(`A-B :- ${a - b}`);
+        // }
+
+
+        // function calculator(a, b, callback) {
+        //     callback(a, b);
+        // }
+
+        // calculator(5, 6, sum);
+        // calculator(5, 6, sub);
+        // calculator(5, 6, multi);
+        // calculator(5, 6, div);
+
+
+        // CallBack Hell (Pyramid od Doom):-
+        function getData(dataId, getNextData) {
+            setTimeout(() => {  // wait for 2 seconds
+                console.log("data- ", dataId);  // print the current dataId
+                if (getNextData) {  // if there is a callback function
+                    getNextData();  // call the callback
+                }
+            }, 2000);  // after 2000ms (2 seconds)
+        }
+
+        // start the first data fetch
+        getData(1, () => {  // after data-1 is printed
+            getData(2, () => {  // after data-2 is printed
+                getData(3, () => {  // after data-3 is printed
+                    getData(4);  // finally print data-4
+                });
+            });
+        });
+
+
+        /*
+        Step-by-step flow:
+            Call getData(1, callback)
+            After 2 seconds → prints data- 1
+            Then calls callback, which calls getData(2, callback)
+            Call getData(2, callback)
+            After 2 seconds → prints data- 2
+            Then calls callback, which calls getData(3, callback)
+            Call getData(3, callback)
+            After 2 seconds → prints data- 3
+            Then calls callback, which calls getData(4)
+            Call getData(4)
+            After 2 seconds → prints data- 4
+            No callback after that, so ends.
+
+
+        */
+    </script>
+</body>
+
+</html>
+
+
+<!--
+Callbacks
+A callback is a function passed as an argument to another function.
+It is called ("executed") later when the main function finishes.
+
+🧠 In short:
+Callback = function inside function.
+It is used to run code after something happens (like after an API call, event, or delay)
+-->
