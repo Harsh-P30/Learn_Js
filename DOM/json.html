@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //  JSON string
+        let myJson = `{  
+       "name":"harsh",
+       "class":"btech",
+       "rollno":30,
+       "isstudent":true,
+       "licence":null,
+       "bookName":["math","science","computerscience","computernetwork"] 
+        }`;
+
+        console.log(myJson); 
+        // console.log(myJson.name); // you cann't access like this First you have to parse the JSON string into a "javaScript Object".
+        let parsedObject = JSON.parse(myJson);
+        console.log(parsedObject.name);
+        console.log(parsedObject.bookName[3]);
+
+        // from javaScript Object to Json String
+
+        let jsonString = JSON.stringify(myJson);
+        console.log(jsonString);
+        // from Json String to JavaScript Object;
+
+        let jsObject = JSON.parse(jsonString);
+        console.log(jsObject);
+    </script>
+</body>
+
+</html>
+
+
+<!--
+
+    JavaScript Object               	JSON
+    Data in object form	                Data in string form
+    Usable by JS directly	            Needs to be parsed first
+    Can have functions	                Cannot have functions
+
+
+    JavaScript Object    vs JSON String
+Feature     	        JavaScript Object	                                                          JSON String
+Definition	            A native JavaScript object that can store data and functions.	              A textual representation of data that follows the JSON format.
+Data Type   	        Object	                                                                      String
+Use	                    Used directly in JavaScript code.	                                          Used for data exchange, typically in API responses or storage.
+Can store functions?	Yes, objects can store functions (methods).	                                  No, JSON can only represent data, not functions.
+Syntax	                { key: value, ... }	                                                          "{ \"key\": \"value\" }" (string format)
+Can include comments?	Yes, comments are allowed in JavaScript objects.	                          No, JSON does not support comments.
+Mutability	            You can change its properties.	                                              A JSON string is immutable until parsed into an object.
+Can store NaN,          Yes (but not safe in most cases).                                             No, JSON cannot represent NaN, undefined, or Infinity.
+undefined, and Infinity?	
+
+Example	                { name: "John", age: 30 }	                                                  "{\"name\":\"John\",\"age\":30}" (JSON string)
+Conversion	            No conversion needed, you work directly with the object.	                  JSON string needs to be parsed to an object with JSON.parse().
+Accessing Data	        object.property or object['property']	                                      After parsing: object.property or object['property']
+
+
+
+Key Differences:
+Data Type:
+
+JavaScript Object: It’s an actual object type in JavaScript, which you can manipulate directly.
+
+JSON String: It’s just a string that follows a specific format. It cannot be used directly as an object; it needs to be parsed first.
+
+Accessing Data:
+
+JavaScript Object: You can access the data using the usual object property syntax: object.property or object['property'].
+
+JSON String: You can’t directly access data from a JSON string. You must parse it into an object using JSON.parse() before accessing its properties.
+
+Functions and Methods:
+
+JavaScript Object: Can store functions (methods), which can be called.
+
+JSON String: Only holds data. No functions, no methods.
+
+Mutability:
+
+JavaScript Object: You can change the properties at runtime.
+
+JSON String: It is immutable until you parse it into an object.
+
+Conversion:
+
+JavaScript Object: No conversion is needed for JavaScript to work with objects.
+
+JSON String: You need to use JSON.parse() to convert it into a JavaScript object and JSON.stringify() to convert it back into a string.
+
+
+-->
