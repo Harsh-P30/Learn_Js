@@ -15,7 +15,11 @@ const multi=(a,b)=>{
 const div=(a,b)=>{
     return a/b
 }
+const power=(a,b)=>{
+    return a**b
+}
 console.log(calculator(7,8,add));
 console.log(calculator(7,8,sub));
 console.log(calculator(7,8,multi));
 console.log(calculator(7,8,div));
+console.log(calculator(7,8,power));
