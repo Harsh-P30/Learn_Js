@@ -1,0 +1,1 @@
+console.table({name:"Harsh",roll:"ewr",roll:340}); // pass object into (.tabel) as data 
