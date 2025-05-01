@@ -10,17 +10,81 @@
 <body>
 
     <script>
-        let myPromise = new Promise((resolve, reject) => {
-            let success = Number(prompt("enter 0 or 1"));
+        // let myPromise = new Promise((resolve, reject) => {
+        //     let success = Number(prompt("enter 0 or 1"));
 
-            if (success === 1) {
-                resolve("Task completed successfully!"); // success output
-                console.log("Task completed successfully!"); // success output
-            } else {
-                reject("Task failed!"); // error output
-                console.log("Task failed!"); // error output
-            }
+        //     if (success === 1) {
+        //         resolve("Task completed successfully!"); // success output
+        //         console.log("Task completed successfully!"); // success output
+        //     } else {
+        //         reject("Task failed!"); // error output
+        //         console.log("Task failed!"); // error output
+        //     }
+        // });
+
+
+        // From HuXn WebDev
+
+        // function checkNumeber(number){
+        //     return new Promise((resolve ,reject) =>{
+        //         if(number % 2 === 0){
+        //             resolve(`${number} is an even number.`);
+        //         }else{
+        //             reject(`${number} is odd number.`);
+        //         }
+        //     });
+        // }
+
+        // const numberToCheck = 5;
+        // checkNumeber(numberToCheck).then((message) =>{
+        //     console.log(`Success : ${message}`);
+        // }).catch((error) =>{
+        //     console.log(`Error : ${error}`);
+        // });
+
+
+
+        function fetchData() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const data = "inside (callback Hell) function";
+                    console.log(data);
+                    resolve(data);
+                }, 2000)
+            });
+        }
+
+        function firstFunc(data) {
+            return new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const processedData = `${data} - Processed data`
+                    console.log('Inside first');
+                    resolve(processedData);
+                }, 2000)
+            });
+        }
+
+        function secondFunc(data) {
+            new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    const processedData = `${data} - Processed data`;
+                    console.log("Inside (seconf func) function");
+                    resolve(processedData);
+                }, 1500);
+            });
+        }
+
+        fetchData()
+        .then((data) => firstFunc(data))
+        .then((processedData1) => secondFunc(processedData1))
+        .then ((processedData2) =>{
+            console.log(`Final result of all function with Promises: ${processedData2}`);
+
+        })
+        .catch((error) =>{
+            console.log("Error" , error);
         });
+
 
     </script>
 </body>
